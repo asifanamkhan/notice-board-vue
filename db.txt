@@ -1,0 +1,44 @@
+columns
+- id - UNSIGNED BIGINT - auto-increment
+- title - string
+- created_id - timestamp
+- updated_at - timestamp
+- deleted_at - timestamp
+
+
+cards
+- id - UNSIGNED BIGINT - auto-increment
+- column_id - UNSIGNED BIGINT - foreign key (columns)
+- order - integer
+- title - string 
+- description - text - nullable
+- created_id - timestamp
+- updated_at - timestamp
+- deleted_at - timestamp
+
+log_types
+- id - UNSIGNED BIGINT - auto-increment
+- type - string
+- created_id - timestamp
+- updated_at - timestamp
+- deleted_at - timestamp
+
+logs
+- id - UNSIGNED BIGINT - autoincrement
+- log_type - UNSIGNED BIGINT - foreign key (log_types)
+- column_id - UNSIGNED BIGINT - foreign key (columns)
+- card_id - UNSIGNED BIGINT - foreign key (cards) - nullable
+- body - text
+- created_id - timestamp
+- updated_at - timestamp
+- deleted_at - timestamp
+
+logs_edit
+- id - UNSIGNED BIGINT - autoincrement
+- log_id - UNSIGNED BIGINT - foreign key (logs)
+- field - string
+- from - text
+- body - text
+- created_id - timestamp
+- updated_at - timestamp
+- deleted_at - timestamp
